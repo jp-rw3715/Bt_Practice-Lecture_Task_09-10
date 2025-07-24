@@ -1,0 +1,40 @@
+body {
+  background-color: #f8f9fa;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.navbar-brand {
+  font-weight: 600;
+}
+.sidebar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+.main-content {
+  padding: 2rem;
+}
+.card {
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+}
+.metric-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+.carousel-item img {
+  height: 300px;
+  object-fit: cover;
+}
+.badge-custom {
+  font-size: 0.75rem;
+}
+.alert-custom {
+  border-left: 4px solid;
+}
+.list-group-item:hover {
+  background-color: #f8f9fa;
+}

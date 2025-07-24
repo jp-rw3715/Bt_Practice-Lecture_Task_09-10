@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Componets Lecture-15</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- Toast Container -->
+    <div class="toast-container">
+      <div id="successToast" class="toast" role="alert">
+        <div class="toast-header bg-success text-white">
+          <i class="fas fa-check-circle me-2"></i>
+          <strong class="me-auto">Success</strong>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="toast"
+          ></button>
+        </div>
+        <div class="toast-body">Data has been successfully updated!</div>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <i class="fas fa-chart-line me-2"></i>Analytics Pro
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#"
+                ><i class="fas fa-home me-1"></i>Dashboard</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                <i class="fas fa-chart-bar me-1"></i>Reports
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Sales Report</a></li>
+                <li><a class="dropdown-item" href="#">User Analytics</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="#">Export Data</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="d-flex">
+            <button
+              class="btn btn-outline-light me-2"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#settingsOffcanvas"
+            >
+              <i class="fas fa-cog"></i>
+            </button>
+            <button
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#profileModal"
+            >
+              <i class="fas fa-user me-1"></i>Profile
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Main Content -->
+        <div class="col-12">
+          <div class="container-fluid py-4">
+            <!-- Page Header -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <h1 class="h3 mb-0">Dashboard Overview</h1>
+              <div class="btn-group" role="group">
+                <button class="btn btn-outline-primary" id="refreshBtn">
+                  <span
+                    id="refreshSpinner"
+                    class="spinner-border spinner-border-sm d-none me-2"
+                  ></span>
+                  <i class="fas fa-sync-alt me-1"></i>Refresh
+                </button>
+              </div>
+            </div>
+
+            <!-- Metrics Cards -->
+            <div class="row mb-4">
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card metric-card h-100">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <h6 class="card-title opacity-75">Total Revenue</h6>
+                        <h2 class="mb-0">$125,430</h2>
+                        <small class="opacity-75">+12.5% from last month</small>
+                      </div>
+                      <div class="align-self-center">
+                        <i class="fas fa-dollar-sign fa-2x opacity-75"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card metric-card-success h-100">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <h6 class="card-title opacity-75">Active Users</h6>
+                        <h2 class="mb-0">2,847</h2>
+                        <small class="opacity-75">+8.2% from last week</small>
+                      </div>
+                      <div class="align-self-center">
+                        <i class="fas fa-users fa-2x opacity-75"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card metric-card-warning h-100">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <h6 class="card-title opacity-75">Conversion Rate</h6>
+                        <h2 class="mb-0">3.2%</h2>
+                        <small class="opacity-75">-0.3% from last month</small>
+                      </div>
+                      <div class="align-self-center">
+                        <i class="fas fa-chart-line fa-2x opacity-75"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card metric-card-info h-100">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <h6 class="card-title opacity-75">Support Tickets</h6>
+                        <h2 class="mb-0">42</h2>
+                        <small class="opacity-75">-15% from yesterday</small>
+                      </div>
+                      <div class="align-self-center">
+                        <i class="fas fa-headset fa-2x opacity-75"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tabs Navigation -->
+            <div class="card mb-4">
+              <div class="card-header">
+                <ul
+                  class="nav nav-pills card-header-pills"
+                  id="reportTabs"
+                  role="tablist"
+                >
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link active"
+                      id="overview-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#overview"
+                      type="button"
+                      role="tab"
+                    >
+                      <i class="fas fa-chart-pie me-1"></i>Overview
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link"
+                      id="analytics-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#analytics"
+                      type="button"
+                      role="tab"
+                    >
+                      <i class="fas fa-chart-bar me-1"></i>Analytics
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link"
+                      id="reports-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#reports"
+                      type="button"
+                      role="tab"
+                    >
+                      <i class="fas fa-file-alt me-1"></i>Reports
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              <div class="card-body">
+                <div class="tab-content" id="reportTabsContent">
+                  <div
+                    class="tab-pane fade show active"
+                    id="overview"
+                    role="tabpanel"
+                  >
+                    <div class="row">
+                      <div class="col-md-8">
+                        <h5>Performance Overview</h5>
+                        <div class="progress mb-3" style="height: 25px">
+                          <div
+                            class="progress-bar bg-primary"
+                            role="progressbar"
+                            style="width: 75%"
+                            data-bs-toggle="tooltip"
+                            title="Website Performance: 75%"
+                          >
+                            Website 75%
+                          </div>
+                        </div>
+                        <div class="progress mb-3" style="height: 25px">
+                          <div
+                            class="progress-bar bg-success"
+                            role="progressbar"
+                            style="width: 88%"
+                            data-bs-toggle="tooltip"
+                            title="Mobile App Performance: 88%"
+                          >
+                            Mobile App 88%
+                          </div>
+                        </div>
+                        <div class="progress mb-3" style="height: 25px">
+                          <div
+                            class="progress-bar bg-warning"
+                            role="progressbar"
+                            style="width: 62%"
+                            data-bs-toggle="tooltip"
+                            title="API Performance: 62%"
+                          >
+                            API 62%
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <h5>Quick Actions</h5>
+                        <div class="d-grid gap-2">
+                          <button
+                            class="btn btn-outline-primary"
+                            data-bs-toggle="popover"
+                            data-bs-title="Export Data"
+                            data-bs-content="Export your dashboard data in various formats including CSV, PDF, and JSON."
+                          >
+                            <i class="fas fa-download me-1"></i>Export Data
+                          </button>
+                          <button
+                            class="btn btn-outline-success"
+                            data-bs-toggle="popover"
+                            data-bs-title="Generate Report"
+                            data-bs-content="Create detailed reports with custom date ranges and metrics."
+                          >
+                            <i class="fas fa-file-pdf me-1"></i>Generate Report
+                          </button>
+                          <button
+                            class="btn btn-outline-info"
+                            data-bs-toggle="popover"
+                            data-bs-title="Schedule Alert"
+                            data-bs-content="Set up automated alerts for important metrics and thresholds."
+                          >
+                            <i class="fas fa-bell me-1"></i>Schedule Alert
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="analytics" role="tabpanel">
+                    <h5>Loading Analytics Data...</h5>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="placeholder-wave">
+                          <div
+                            class="placeholder col-12 mb-2"
+                            style="height: 20px"
+                          ></div>
+                          <div
+                            class="placeholder col-9 mb-2"
+                            style="height: 20px"
+                          ></div>
+                          <div
+                            class="placeholder col-7 mb-2"
+                            style="height: 20px"
+                          ></div>
+                          <div
+                            class="placeholder col-11"
+                            style="height: 20px"
+                          ></div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="placeholder-wave">
+                          <div
+                            class="placeholder col-8 mb-2"
+                            style="height: 20px"
+                          ></div>
+                          <div
+                            class="placeholder col-12 mb-2"
+                            style="height: 20px"
+                          ></div>
+                          <div
+                            class="placeholder col-10 mb-2"
+                            style="height: 20px"
+                          ></div>
+                          <div
+                            class="placeholder col-6"
+                            style="height: 20px"
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="reports" role="tabpanel">
+                    <h5>Recent Reports</h5>
+                    <div class="table-responsive">
+                      <table class="table table-hover">
+                        <thead class="table-dark">
+                          <tr>
+                            <th>Report Name</th>
+                            <th>Date Created</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Monthly Sales Report</td>
+                            <td>2024-07-15</td>
+                            <td>
+                              <span class="badge bg-success">Completed</span>
+                            </td>
+                            <td>
+                              <button
+                                class="btn btn-sm btn-outline-primary"
+                                data-bs-toggle="tooltip"
+                                title="Download Report"
+                              >
+                                <i class="fas fa-download"></i>
+                              </button>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>User Analytics Report</td>
+                            <td>2024-07-14</td>
+                            <td>
+                              <span class="badge bg-warning">Processing</span>
+                            </td>
+                            <td>
+                              <button
+                                class="btn btn-sm btn-outline-secondary"
+                                disabled
+                              >
+                                <i class="fas fa-clock"></i>
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pagination Example -->
+            <div class="card">
+              <div class="card-header">
+                <h5 class="mb-0">Data Records</h5>
+              </div>
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="text-muted">Showing 1-10 of 247 records</span>
+                  <nav aria-label="Data pagination">
+                    <ul class="pagination mb-0">
+                      <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                      </li>
+                      <li class="page-item active">
+                        <a class="page-link" href="#">1</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">2</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div class="modal fade" id="profileModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title">
+              <i class="fas fa-user-circle me-2"></i>User Profile
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-4 text-center">
+                <img
+                  src="https://via.placeholder.com/150x150/667eea/FFFFFF?text=JD"
+                  class="rounded-circle mb-3"
+                  alt="Profile"
+                />
+                <h5>John Doe</h5>
+                <p class="text-muted">Analytics Manager</p>
+              </div>
+              <div class="col-md-8">
+                <h6>Account Information</h6>
+                <form>
+                  <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      value="john.doe@company.com"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Department</label>
+                    <select class="form-select">
+                      <option>Analytics</option>
+                      <option>Marketing</option>
+                      <option>Sales</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Notifications</label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" checked />
+                      <label class="form-check-label"
+                        >Email notifications</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" />
+                      <label class="form-check-label">SMS notifications</label>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="showSuccessToast()"
+            >
+              Save Changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Settings Offcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="settingsOffcanvas">
+      <div class="offcanvas-header bg-primary text-white">
+        <h5 class="offcanvas-title">
+          <i class="fas fa-cog me-2"></i>Dashboard Settings
+        </h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <h6>Display Options</h6>
+        <div class="mb-3">
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="darkMode" />
+            <label class="form-check-label" for="darkMode">Dark Mode</label>
+          </div>
+          <div class="form-check form-switch">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="compactView"
+              checked
+            />
+            <label class="form-check-label" for="compactView"
+              >Compact View</label
+            >
+          </div>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="autoRefresh" />
+            <label class="form-check-label" for="autoRefresh"
+              >Auto Refresh</label
+            >
+          </div>
+        </div>
+
+        <hr />
+
+        <h6>Chart Settings</h6>
+        <div class="mb-3">
+          <label class="form-label">Default Time Range</label>
+          <select class="form-select">
+            <option>Last 7 days</option>
+            <option selected>Last 30 days</option>
+            <option>Last 90 days</option>
+            <option>Last year</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Refresh Interval</label>
+          <select class="form-select">
+            <option>30 seconds</option>
+            <option selected>1 minute</option>
+            <option>5 minutes</option>
+            <option>Manual</option>
+          </select>
+        </div>
+
+        <hr />
+
+        <h6>Export Settings</h6>
+        <div class="mb-3">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" checked />
+            <label class="form-check-label">Include metadata</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" />
+            <label class="form-check-label">Compress exports</label>
+          </div>
+        </div>
+
+        <div class="d-grid">
+          <button class="btn btn-primary">Apply Settings</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ScrollSpy Content (hidden by default, shows scrollspy navigation) -->
+    <div id="scrollspyContent" class="d-none">
+      <nav
+        id="navbar-example3"
+        class="h-100 flex-column align-items-stretch pe-4 border-end"
+      >
+        <nav class="nav nav-pills flex-column">
+          <a class="nav-link" href="#item-1">Item 1</a>
+          <a class="nav-link" href="#item-2">Item 2</a>
+          <a class="nav-link" href="#item-3">Item 3</a>
+        </nav>
+      </nav>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Initialize tooltips
+      var tooltipTriggerList = [].slice.call(
+        document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      );
+      var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+      });
+
+      // Initialize popovers
+      var popoverTriggerList = [].slice.call(
+        document.querySelectorAll('[data-bs-toggle="popover"]')
+      );
+      var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl);
+      });
+
+      // Refresh button with spinner
+      document
+        .getElementById("refreshBtn")
+        .addEventListener("click", function () {
+          const spinner = document.getElementById("refreshSpinner");
+          const btn = this;
+
+          btn.disabled = true;
+          spinner.classList.remove("d-none");
+
+          // Simulate loading
+          setTimeout(function () {
+            btn.disabled = false;
+            spinner.classList.add("d-none");
+            showSuccessToast();
+          }, 2000);
+        });
+
+      // Show success toast
+      function showSuccessToast() {
+        const toast = new bootstrap.Toast(
+          document.getElementById("successToast")
+        );
+        toast.show();
+      }
+
+      // Auto-show toast on page load
+      window.addEventListener("load", function () {
+        setTimeout(showSuccessToast, 1000);
+      });
+
+      // Tab switching simulation for loading placeholders
+      document
+        .getElementById("analytics-tab")
+        .addEventListener("click", function () {
+          // Simulate loading delay
+          setTimeout(function () {
+            const analyticsPane = document.getElementById("analytics");
+            analyticsPane.innerHTML = `
+                    <h5>Analytics Dashboard</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title">Page Views</h6>
+                                    <h3 class="text-primary">124,567</h3>
+                                    <small class="text-success"><i class="fas fa-arrow-up"></i> +5.2%</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title">Session Duration</h6>
+                                    <h3 class="text-info">3:42</h3>
+                                    <small class="text-danger"><i class="fas fa-arrow-down"></i> -1.8%</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+          }, 1500);
+        });
+
+      // Pagination click handlers
+      document
+        .querySelectorAll(".pagination .page-link")
+        .forEach(function (link) {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            // Remove active class from all items
+            document
+              .querySelectorAll(".pagination .page-item")
+              .forEach(function (item) {
+                item.classList.remove("active");
+              });
+            // Add active class to clicked item
+            if (!this.parentElement.classList.contains("disabled")) {
+              this.parentElement.classList.add("active");
+            }
+          });
+        });
+    </script>
+  </body>
+</html>

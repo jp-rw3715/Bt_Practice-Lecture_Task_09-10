@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Componets Lecture-14</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- Navigation with Dropdowns and Badges -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <i class="fas fa-chart-line me-2"></i>Enterprise Dashboard
+        </a>
+
+        <!-- Button Group for Navigation -->
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-outline-light btn-sm">
+            <i class="fas fa-bell"></i>
+            <span class="badge bg-danger badge-custom">5</span>
+          </button>
+          <button type="button" class="btn btn-outline-light btn-sm">
+            <i class="fas fa-envelope"></i>
+            <span class="badge bg-warning badge-custom">12</span>
+          </button>
+        </div>
+
+        <!-- Dropdown Menu -->
+        <div class="dropdown">
+          <button
+            class="btn btn-light dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+          >
+            <i class="fas fa-user-circle me-1"></i>John Admin
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-user me-2"></i>Profile</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-cog me-2"></i>Settings</a
+              >
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-sign-out-alt me-2"></i>Logout</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Breadcrumb Navigation -->
+    <div class="container-fluid mt-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="#" class="text-decoration-none">Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="#" class="text-decoration-none">Analytics</a>
+          </li>
+          <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar with List Group -->
+        <div class="col-md-3 col-lg-2 sidebar p-0">
+          <div class="list-group list-group-flush">
+            <a
+              href="#"
+              class="list-group-item list-group-item-action bg-transparent text-white border-0"
+            >
+              <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+              <span class="badge bg-light text-dark ms-auto">New</span>
+            </a>
+            <a
+              href="#"
+              class="list-group-item list-group-item-action bg-transparent text-white border-0"
+            >
+              <i class="fas fa-users me-2"></i>Users
+              <span class="badge bg-warning ms-auto">1,247</span>
+            </a>
+            <a
+              href="#"
+              class="list-group-item list-group-item-action bg-transparent text-white border-0"
+            >
+              <i class="fas fa-chart-bar me-2"></i>Analytics
+            </a>
+            <a
+              href="#"
+              class="list-group-item list-group-item-action bg-transparent text-white border-0"
+            >
+              <i class="fas fa-shopping-cart me-2"></i>Orders
+              <span class="badge bg-success ms-auto">+23%</span>
+            </a>
+            <a
+              href="#"
+              class="list-group-item list-group-item-action bg-transparent text-white border-0"
+            >
+              <i class="fas fa-cog me-2"></i>Settings
+            </a>
+          </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="col-md-9 col-lg-10 main-content">
+          <!-- Alert Messages -->
+          <div class="row mb-4">
+            <div class="col-12">
+              <div
+                class="alert alert-success alert-custom border-start-0"
+                style="border-left-color: #198754"
+              >
+                <div class="d-flex align-items-center">
+                  <i class="fas fa-check-circle me-2"></i>
+                  <div class="flex-grow-1">
+                    <strong>System Status:</strong> All services are operational
+                  </div>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                  ></button>
+                </div>
+              </div>
+
+              <div
+                class="alert alert-warning alert-custom border-start-0"
+                style="border-left-color: #ffc107"
+              >
+                <div class="d-flex align-items-center">
+                  <i class="fas fa-exclamation-triangle me-2"></i>
+                  <div class="flex-grow-1">
+                    <strong>Maintenance Notice:</strong> Scheduled maintenance
+                    on Sunday 2:00 AM - 4:00 AM
+                  </div>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                  ></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Metric Cards -->
+          <div class="row mb-4">
+            <div class="col-md-3 mb-3">
+              <div class="card metric-card">
+                <div class="card-body text-center">
+                  <i class="fas fa-users fa-2x mb-2"></i>
+                  <h4 class="card-title">1,247</h4>
+                  <p class="card-text">Active Users</p>
+                  <span class="badge bg-light text-dark">+12% this month</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <div class="card">
+                <div class="card-body text-center">
+                  <i class="fas fa-shopping-cart fa-2x text-success mb-2"></i>
+                  <h4 class="card-title">$47,890</h4>
+                  <p class="card-text text-muted">Total Revenue</p>
+                  <span class="badge bg-success">+8.2%</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <div class="card">
+                <div class="card-body text-center">
+                  <i class="fas fa-chart-line fa-2x text-primary mb-2"></i>
+                  <h4 class="card-title">89.5%</h4>
+                  <p class="card-text text-muted">Conversion Rate</p>
+                  <span class="badge bg-primary">Optimal</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <div class="card">
+                <div class="card-body text-center">
+                  <i class="fas fa-clock fa-2x text-warning mb-2"></i>
+                  <h4 class="card-title">2.4s</h4>
+                  <p class="card-text text-muted">Avg Load Time</p>
+                  <span class="badge bg-warning">Monitor</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <!-- Carousel for Featured Content -->
+            <div class="col-lg-8 mb-4">
+              <div class="card">
+                <div
+                  class="card-header d-flex justify-content-between align-items-center"
+                >
+                  <h5 class="mb-0">
+                    <i class="fas fa-images me-2"></i>Featured Analytics
+                  </h5>
+                  <div class="btn-group btn-group-sm">
+                    <button class="btn btn-outline-primary">Daily</button>
+                    <button class="btn btn-primary">Weekly</button>
+                    <button class="btn btn-outline-primary">Monthly</button>
+                  </div>
+                </div>
+                <div class="card-body p-0">
+                  <div
+                    id="analyticsCarousel"
+                    class="carousel slide"
+                    data-bs-ride="carousel"
+                  >
+                    <div class="carousel-indicators">
+                      <button
+                        type="button"
+                        data-bs-target="#analyticsCarousel"
+                        data-bs-slide-to="0"
+                        class="active"
+                      ></button>
+                      <button
+                        type="button"
+                        data-bs-target="#analyticsCarousel"
+                        data-bs-slide-to="1"
+                      ></button>
+                      <button
+                        type="button"
+                        data-bs-target="#analyticsCarousel"
+                        data-bs-slide-to="2"
+                      ></button>
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <div
+                          class="d-flex align-items-center justify-content-center bg-primary text-white"
+                          style="height: 300px"
+                        >
+                          <div class="text-center">
+                            <i class="fas fa-chart-bar fa-4x mb-3"></i>
+                            <h3>Sales Performance</h3>
+                            <p>Revenue increased by 23% this quarter</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <div
+                          class="d-flex align-items-center justify-content-center bg-success text-white"
+                          style="height: 300px"
+                        >
+                          <div class="text-center">
+                            <i class="fas fa-users fa-4x mb-3"></i>
+                            <h3>User Growth</h3>
+                            <p>New user registrations up 15%</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <div
+                          class="d-flex align-items-center justify-content-center bg-info text-white"
+                          style="height: 300px"
+                        >
+                          <div class="text-center">
+                            <i class="fas fa-globe fa-4x mb-3"></i>
+                            <h3>Global Reach</h3>
+                            <p>Expanded to 12 new markets</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      class="carousel-control-prev"
+                      type="button"
+                      data-bs-target="#analyticsCarousel"
+                      data-bs-slide="prev"
+                    >
+                      <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button
+                      class="carousel-control-next"
+                      type="button"
+                      data-bs-target="#analyticsCarousel"
+                      data-bs-slide="next"
+                    >
+                      <span class="carousel-control-next-icon"></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Accordion FAQ Section -->
+            <div class="col-lg-4 mb-4">
+              <div class="card">
+                <div class="card-header">
+                  <h5 class="mb-0">
+                    <i class="fas fa-question-circle me-2"></i>System FAQ
+                  </h5>
+                </div>
+                <div class="card-body p-0">
+                  <div class="accordion" id="systemFAQ">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button
+                          class="accordion-button"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#faq1"
+                        >
+                          How to reset password?
+                        </button>
+                      </h2>
+                      <div
+                        id="faq1"
+                        class="accordion-collapse collapse show"
+                        data-bs-parent="#systemFAQ"
+                      >
+                        <div class="accordion-body">
+                          Navigate to Settings > Security > Password Reset.
+                          Follow the verification steps to update your
+                          credentials.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button
+                          class="accordion-button collapsed"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#faq2"
+                        >
+                          Export data options?
+                        </button>
+                      </h2>
+                      <div
+                        id="faq2"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#systemFAQ"
+                      >
+                        <div class="accordion-body">
+                          Use the Export function in Analytics section.
+                          Available formats: CSV, PDF, Excel. Historical data up
+                          to 2 years.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button
+                          class="accordion-button collapsed"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#faq3"
+                        >
+                          API rate limits?
+                        </button>
+                      </h2>
+                      <div
+                        id="faq3"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#systemFAQ"
+                      >
+                        <div class="accordion-body">
+                          Standard plan: 1000 requests/hour. Premium: 5000
+                          requests/hour. Enterprise: Custom limits available.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Collapsible Advanced Settings -->
+          <div class="row mb-4">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <h5 class="mb-0">
+                      <i class="fas fa-cogs me-2"></i>Advanced Configuration
+                    </h5>
+                    <button
+                      class="btn btn-outline-primary btn-sm"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#advancedSettings"
+                    >
+                      <i class="fas fa-chevron-down me-1"></i>Toggle Settings
+                    </button>
+                  </div>
+                </div>
+                <div class="collapse" id="advancedSettings">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <h6>Security Settings</h6>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            checked
+                          />
+                          <label class="form-check-label"
+                            >Two-factor authentication</label
+                          >
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" />
+                          <label class="form-check-label"
+                            >IP whitelist enforcement</label
+                          >
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <h6>Performance Options</h6>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            checked
+                          />
+                          <label class="form-check-label">Enable caching</label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            checked
+                          />
+                          <label class="form-check-label"
+                            >Compress responses</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mt-3">
+                      <button class="btn btn-primary">Save Changes</button>
+                      <button class="btn btn-outline-secondary ms-2">
+                        Reset to Default
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Activity with List Group -->
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div
+                  class="card-header d-flex justify-content-between align-items-center"
+                >
+                  <h5 class="mb-0">
+                    <i class="fas fa-history me-2"></i>Recent Activity
+                  </h5>
+                  <span class="badge bg-secondary">Last 24 hours</span>
+                </div>
+                <div class="card-body p-0">
+                  <div class="list-group list-group-flush">
+                    <div
+                      class="list-group-item d-flex justify-content-between align-items-start"
+                    >
+                      <div class="ms-2 me-auto">
+                        <div class="fw-bold">New user registration</div>
+                        john.doe@company.com joined the platform
+                      </div>
+                      <span class="badge bg-primary rounded-pill"
+                        >2 min ago</span
+                      >
+                    </div>
+                    <div
+                      class="list-group-item d-flex justify-content-between align-items-start"
+                    >
+                      <div class="ms-2 me-auto">
+                        <div class="fw-bold">System backup completed</div>
+                        Daily backup process finished successfully
+                      </div>
+                      <span class="badge bg-success rounded-pill"
+                        >1 hour ago</span
+                      >
+                    </div>
+                    <div
+                      class="list-group-item d-flex justify-content-between align-items-start"
+                    >
+                      <div class="ms-2 me-auto">
+                        <div class="fw-bold">API rate limit reached</div>
+                        Client 192.168.1.100 exceeded hourly limit
+                      </div>
+                      <span class="badge bg-warning rounded-pill"
+                        >3 hours ago</span
+                      >
+                    </div>
+                    <div
+                      class="list-group-item d-flex justify-content-between align-items-start"
+                    >
+                      <div class="ms-2 me-auto">
+                        <div class="fw-bold">Database optimization</div>
+                        Query performance improved by 15%
+                      </div>
+                      <span class="badge bg-info rounded-pill"
+                        >5 hours ago</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+body {
+  background-color: #f8f9fa;
+}
+.sidebar {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+.card {
+  border: none;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  transition: all 0.3s ease;
+}
+.card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+.metric-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+.metric-card-success {
+  background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+}
+.metric-card-warning {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+.metric-card-info {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+.toast-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1055;
+}
+.navbar-brand {
+  font-weight: 700;
+}
+.nav-pills .nav-link.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+.placeholder-wave {
+  animation: placeholderWave 2s linear infinite;
+}
+@keyframes placeholderWave {
+  0% {
+    mask-position: -200% 0%;
+  }
+  100% {
+    mask-position: 200% 0%;
+  }
+}
